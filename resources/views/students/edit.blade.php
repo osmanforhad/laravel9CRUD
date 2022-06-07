@@ -12,7 +12,7 @@
                     </h4>
                 </div>
                 <div class="card-body">
-                    <form action="{{ url('update-student'.$student->id) }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ url('update-student/'.$student->id) }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
                         <div class="form-group mb-3">

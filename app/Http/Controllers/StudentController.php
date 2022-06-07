@@ -38,4 +38,24 @@ class StudentController extends Controller
         return view('students.edit', compact('student'));
     }
 
+    public function update(Request $request, $id){
+        $student = Student::find($id);
+        $student->name = $request->input('name');
+        $student->email = $request->input('email');
+        $student->course = $request->input('course');
+        if($request->hasFile('profile_image')){
+            $destination_path = 'uploads/students/'.$student->profile_image;
+            if(File::exists($destination_path)){
+                File::delete($destination_path);
+            }
+            $file = $request->file('profile_image');
+            $extension = $file->getClientOriginalExtension();
+            $fileName = time().'.'.$extension;
+            $file->move('uploads/students/', $fileName);
+            $student->profile_image = $fileName;
+        }
+        $student->update();
+        return redirect()->route('student.show')->with('status', 'Student Updated Successfully');
+    }
+
 }
