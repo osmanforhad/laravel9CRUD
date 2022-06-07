@@ -41,7 +41,12 @@
                                     <a href="{{ url('edit-student/'.$student->id) }}" class="btn btn-primary btn-sm">Edit</a>
                                 </td>
                                 <td>
-                                    <a href="" class="btn btn-danger btn-sm">Delete</a>
+                                    {{-- <a href="{{ url('delete-student/'.$student->id) }}" class="btn btn-danger btn-sm">Delete</a> --}}
+                                    <form action="{{ url('delete-student/'.$student->id) }}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                                    </form>
                                 </td>
                             </tr>
                             @endforeach

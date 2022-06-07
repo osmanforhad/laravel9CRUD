@@ -58,4 +58,14 @@ class StudentController extends Controller
         return redirect()->route('student.show')->with('status', 'Student Updated Successfully');
     }
 
+    public function destroy($id){
+        $student = Student::find($id);
+        $destination_path = 'uploads/students/'.$student->profile_image;
+        if(File::exists($destination_path)){
+            File::delete($destination_path);
+        }
+        $student->delete();
+        return redirect()->route('student.show')->with('status', 'Student info deleted Successfully');
+    }
+
 }
