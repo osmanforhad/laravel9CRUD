@@ -15,7 +15,38 @@
                     </h4>
                 </div>
                 <div class="card-body">
-
+                    <table class="table table-bordered table-striped">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Course</th>
+                                <th>Profile Pic</th>
+                                <th>Edit</th>
+                                <th>Delete</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($students as $student )
+                            <tr>
+                                <td>{{ $student->id }}</td>
+                                <td>{{ $student->name }}</td>
+                                <td>{{ $student->email }}</td>
+                                <td>{{ $student->course }}</td>
+                                <td>
+                                    <img src="{{ asset('uploads/students/'.$student->profile_image) }}" width="70px" height="70px" alt="{{ $student->name }}">
+                                </td>
+                                <td>
+                                    <a href="" class="btn btn-primary btn-sm">Edit</a>
+                                </td>
+                                <td>
+                                    <a href="" class="btn btn-danger btn-sm">Delete</a>
+                                </td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
