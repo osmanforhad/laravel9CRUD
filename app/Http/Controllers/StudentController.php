@@ -33,4 +33,9 @@ class StudentController extends Controller
         return redirect()->route('student.show')->with('status', 'Student Created Successfully');
     }
 
+    public function edit($id){
+        $student = Student::find($id);
+        return view('students.edit', compact('student'));
+    }
+
 }

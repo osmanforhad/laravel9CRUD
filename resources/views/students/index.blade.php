@@ -38,7 +38,7 @@
                                     <img src="{{ asset('uploads/students/'.$student->profile_image) }}" width="70px" height="70px" alt="{{ $student->name }}">
                                 </td>
                                 <td>
-                                    <a href="" class="btn btn-primary btn-sm">Edit</a>
+                                    <a href="{{ url('edit-student/'.$student->id) }}" class="btn btn-primary btn-sm">Edit</a>
                                 </td>
                                 <td>
                                     <a href="" class="btn btn-danger btn-sm">Delete</a>

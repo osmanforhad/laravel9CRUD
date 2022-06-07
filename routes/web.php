@@ -21,3 +21,5 @@ Route::get('/', function () {
 Route::get('students', [StudentController::class, 'index'])->name('student.show');
 Route::get('add-student', [StudentController::class, 'create'])->name('student.add');
 Route::post('save-student', [StudentController::class, 'store'])->name('student.store');
+Route::get('edit-student/{id}', [StudentController::class, 'edit']);
+Route::put('update-student/{id}', [StudentController::class, 'update']);
